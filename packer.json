@@ -1,0 +1,30 @@
+{
+    "builders": [
+        {
+            "type": "docker",
+            "image": "alpine:3.9",
+            "commit": true,
+            "name": "alpine",
+            "changes": [
+                "CMD [\"echo\", \"Hello World\"]"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "apk add nginx"
+            ]
+        }
+    ],
+    "post-processors": [
+        {
+            "type": "docker-tag",
+            "repository": "docker.pkg.github.com/timharris777/virtual-environments/ubuntu-latest",
+            "tag": [
+                "1.0"
+            ]
+        }
+    ]
+}
