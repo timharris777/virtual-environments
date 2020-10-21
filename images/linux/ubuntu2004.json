@@ -25,6 +25,15 @@
         {
             "type": "shell",
             "inline": [
+                "apt-get update",
+                "apt-get -y install sudo lsb-core software-properties-common apt-utils",
+                "add-apt-repository 'deb http://security.ubuntu.com/ubuntu focal-security main'"
+            ],
+            "execute_command": "sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "inline": [
                 "mkdir {{user `image_folder`}}",
                 "chmod 777 {{user `image_folder`}}"
             ],
