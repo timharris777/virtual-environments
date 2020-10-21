@@ -14,7 +14,7 @@ jobs:
       - run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
       - run: |
-          packer validate packer.json
+          packer validate github_feed_token=${{ secrets.GITHUB_TOKEN }} images/linux/ubuntu2004.json
       - run: |
           packer build -var github_feed_token=${{ secrets.GITHUB_TOKEN }} images/linux/ubuntu2004.json
           docker push docker.pkg.github.com/timharris777/virtual-environments/ubuntu-latest
