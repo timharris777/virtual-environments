@@ -16,5 +16,5 @@ jobs:
       - run: |
           packer validate packer.json
       - run: |
-          packer build packer.json
+          packer build -var github_feed_token=${{ secrets.GITHUB_TOKEN }} images/linux/ubuntu2004.json
           docker push docker.pkg.github.com/timharris777/virtual-environments/ubuntu-latest
