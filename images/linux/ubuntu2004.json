@@ -2,6 +2,7 @@
     "variables": {
         "commit_url": "{{env `COMMIT_URL`}}",
         "image_folder": "/imagegeneration",
+        "imagedata_file": "/imagegeneration/imagedata.json",
         "commit_file": "/imagegeneration/commit.txt",
         "metadata_file": "/imagegeneration/metadatafile",
         "installer_script_folder": "/imagegeneration/installers",
